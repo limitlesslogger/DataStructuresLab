@@ -28,8 +28,8 @@ int main()
         scanf("%f", &terms[i].coeff);
         printf("Exponent :");
         scanf("%d", &terms[i].exp);
-        avail++;
-    }
+        avail++;//on adding the first element avail becomes 1
+    }//avail gives total number of elements
     printf("avail=%d",avail);
 
     printf("Enter the number of terms in polynomial2:");
@@ -73,7 +73,6 @@ int main()
     printf("\n");
     return 0;
 }
-
 void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *finishd)
 {
     while (starta <= finisha && startb <= finishb)
