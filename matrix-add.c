@@ -54,42 +54,43 @@ int sparseMatrix(term feilds[],int arr[][10],int rows,int r,int c)
         }
     }
 }
-int addMatrix(term feilds1[],term feilds2[],term feild3[],int m1,int m2)
+int addMatrix(term feilds1[],term feilds2[],term feild3[])
 {
     int c3=1,i=1,j=1;
     feild3[0].row=feilds1[0].row;
     feild3[0].col=feilds1[0].col;
-    while(i<m1&&j<m2)
+    while(i<feilds1[0].value&&j<feilds2[0].value)
     {
-        if(feilds1[i].row==feilds2[i].row)
+        if(feilds1[i].row==feilds2[i].row&&feilds1[i].col==feilds2[i].col)
         {
-            if(feilds1[i].col==feilds2[i].col)
-            {
+            // if(feilds1[i].col==feilds2[i].col)
+            // {
                 feild3[c3].row=feilds1[i].row;
                 feild3[c3].col=feilds1[i].col;
                 feild3[c3].value=feilds1[i].value+feilds2[i].value;
                 c3++;
                 i++;
                 j++;
-            }
-            else if(feilds1[i].col<feilds2[i].col)
+        }
+            // }
+            else if (feilds1[i].row > feilds2[j].row || (feilds1[i].row == feilds2[j].row && feilds1[i].col > feilds2[j].col))
             {
-                feild3[c3].row=feilds1[i].row;
+                feild3[c3].row=feilds2[j].row;
+               feild3[c3].col=feilds2[j].col;
+               feild3[c3].value=feilds2[j].value;
+               c3++; 
+               j++;
+            }
+            if (feilds1[i].row < feilds2[j].row || (feilds1[i].row == feilds2[j].row && feilds1[i].col < feilds2[j].col))
+            {
+               feild3[c3].row=feilds1[i].row;
                 feild3[c3].col=feilds1[i].col;
                 feild3[c3].value=feilds1[i].value;
                 c3++;
                 i++;
             }
-            else
-            {
-               feild3[c3].row=feilds2[i].row;
-               feild3[c3].col=feilds2[i].col;
-               feild3[c3].value=feilds2[i].value;
-               c3++; 
-               j++;
-            }
-        }
-        else if(feilds1[i].row<feilds2[i].row)
+    }
+        while(i<=feilds1[0].value)
         {
             feild3[c3].row=feilds1[i].row;
             feild3[c3].col=feilds1[i].col;
@@ -97,37 +98,37 @@ int addMatrix(term feilds1[],term feilds2[],term feild3[],int m1,int m2)
             c3++;
             i++; 
         }
-        else
+        while(j<=feilds2[0].value)
         {
-            feild3[c3].row=feilds2[i].row;
-            feild3[c3].col=feilds2[i].col;
-            feild3[c3].value=feilds2[i].value;
+            feild3[c3].row=feilds2[j].row;
+            feild3[c3].col=feilds2[j].col;
+            feild3[c3].value=feilds2[j].value;
             c3++; 
             j++;
         }
-        feild3[0].value=c3;
-        printf("c3 is %d\n",c3);
-        return c3;
-    }
-
-    while(i<m1)
-    {
-        feild3[c3].row=feilds1[i].row;
-        feild3[c3].col=feilds1[i].col;
-        feild3[c3].value=feilds1[i].value;
-        c3++;
-        i++;    
-    }
-    while(j<m2)
-    {
-               feild3[c3].row=feilds2[i].row;
-               feild3[c3].col=feilds2[i].col;
-               feild3[c3].value=feilds2[i].value;
-               c3++; 
-               j++;
-    }
-    feild3[0].value=c3;
+        feild3[0].value=c3-1;
+        printf("c3-1 is %d\n",c3-1);
+        return c3-1;
 }
+
+//     while(i<feilds1[0].value)
+//     {
+//         feild3[c3].row=feilds1[i].row;
+//         feild3[c3].col=feilds1[i].col;
+//         feild3[c3].value=feilds1[i].value;
+//         c3++;
+//         i++;    
+//     }
+//     while(j<feilds2[0].value)
+//     {
+//                feild3[c3].row=feilds2[i].row;
+//                feild3[c3].col=feilds2[i].col;
+//                feild3[c3].value=feilds2[i].value;
+//                c3++; 
+//                j++;
+//     }
+//     feild3[0].value=c3;
+// }
 // void add()
 // {
 //     int i=1,j=1,k=1;
@@ -163,7 +164,7 @@ void main()
         printf("\n");
     }
     printf("Result\n");
-    int c3=addMatrix(feilds1,feilds2,feild3,m1,m2);
+    int c3=addMatrix(feilds1,feilds2,feild3);
     for(int i=0;i<=c3;i++)
     {
         printf("%d ",feild3[i].row);
