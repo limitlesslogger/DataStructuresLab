@@ -34,7 +34,7 @@ void arrangeSparse(triplet a[],int n)
     {
         for(int j=i+1;j<=n;j++)
         {
-            if(a[j].rows==a[i].rows&&a[j].columns<a[i].columns||(a[j].rows<a[i].rows))
+            if((a[i].rows>a[j].rows&&a[j].columns==a[i].columns)||(a[i].columns>a[j].columns))
             {
                     temp[0]=a[i];
                     a[i]=a[j];
