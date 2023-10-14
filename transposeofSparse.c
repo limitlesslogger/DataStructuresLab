@@ -27,7 +27,6 @@ void displayInput(triplet a[],int n)
 void arrangeSparse(triplet a[],int n)
 {
     triplet temp[1];
-    int i=1;
     //arrange in ascending order of columns
     //input il column ascending akuka
     for(int i=1;i<=n;i++)

@@ -83,6 +83,6 @@ void main()
     triplet rows[nonZero+1];
     sparseRep(rows,arr,nonZero,r,c);
     displaySparse(rows,nonZero);
-    float sparsity=nonZero/(r*c);
+    float sparsity=(r*c-nonZero)/(r*c);
     printf("the sparsity is %f \n",sparsity);
 }
