@@ -9,9 +9,9 @@ void inputPoly(terms a[],int n)
     printf("Please enter the input in descending order of degrees as indicated\n");
     for(int i=0;i<n;i++)
     {
-        printf("Enter the coefficient ",i);
+        printf("Enter the coefficient ");
         scanf("%f",&a[i].coeff);
-        printf("Enter the exponent ",i);
+        printf("Enter the exponent ");
         scanf("%d",&a[i].exp);
     }
 }
