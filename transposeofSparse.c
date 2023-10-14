@@ -24,27 +24,23 @@ void displayInput(triplet a[],int n)
         printf("%d %d %d\n",a[i].rows,a[i].columns,a[i].value);
     }
 }
-void arrangeSparse(triplet a[],triplet t[],int n)
+void arrangeSparse(triplet a[],int n)
 {
     triplet temp[1];
-    int i=1,k=1;
+    int i=1;
     //arrange in ascending order of columns
-    t[0].rows=a[0].rows;
-    t[0].columns=a[0].columns;
-    t[0].value=a[0].value;
+    //input il column ascending akuka
     for(int i=1;i<=n;i++)
     {
         for(int j=i+1;j<=n;j++)
         {
-            if((a[i].rows>a[j].rows&&a[j].columns==a[i].columns)||(a[i].columns>a[j].columns))
+            if(a[j].rows==a[i].rows&&a[j].columns<a[i].columns||(a[j].rows<a[i].rows))
             {
                     temp[0]=a[i];
                     a[i]=a[j];
                     a[j]=temp[0];
             }
         }
-        t[k]=a[i];
-        k++;
     }
 }
 void transSparse(triplet t[],int n)
@@ -60,7 +56,7 @@ void transSparse(triplet t[],int n)
 }
 void main()
 {
-    triplet a[10],t[10],c[10];
+    triplet a[10],t[10];
     int nonZero1;
     printf("Enter number of non zero elemnets in first matrix\n");
     scanf("%d",&nonZero1);
@@ -70,37 +66,11 @@ void main()
     inputSparse(a,nonZero1,r1,c1);
     printf("input\n");
     displayInput(a,nonZero1);
-    for(int i=0;i<=nonZero1;i++)
-    {
-        c[i]=a[i];
-    }
-    arrangeSparse(a,t,nonZero1);
+    arrangeSparse(a,nonZero1);
     printf("Arrange\n");
-    displayInput(t,nonZero1);
-    transSparse(t,nonZero1);
-    printf("Transpose\n");
-    displayInput(t,nonZero1);
-    int flag=0;
-    for(int i=0;i<=nonZero1;i++)
-    {
-        if(t[i].columns!=c[i].columns||t[i].rows!=c[i].rows||t[i].value!=c[i].value)
-        {
-            printf("not symmetric \n");
-            flag=1;
-            break;
-        }
-    }
-    if(flag==0)
-    {
-        printf("Symmetric\n");
-    }
+    displayInput(a,nonZero1);
+    printf("swap\n");
+    transSparse(a,nonZero1);
+    displayInput(a,nonZero1);
 }
-/*
-0 0 1
-0 1 1
-0 2 -1
-1 0 1
-1 1 2
-2 0 -1
-2 2 5
-*/
+//arraged order in trans il akuka swap cheyuka
