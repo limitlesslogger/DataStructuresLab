@@ -73,6 +73,14 @@ int addMatrix(term feilds1[],term feilds2[],term feild3[])
                 j++;
         }
             // }
+            else if (feilds1[i].row < feilds2[j].row || (feilds1[i].row == feilds2[j].row && feilds1[i].col < feilds2[j].col))
+            {
+               feild3[c3].row=feilds1[i].row;
+                feild3[c3].col=feilds1[i].col;
+                feild3[c3].value=feilds1[i].value;
+                c3++;
+                i++;
+            }
             else if (feilds1[i].row > feilds2[j].row || (feilds1[i].row == feilds2[j].row && feilds1[i].col > feilds2[j].col))
             {
                 feild3[c3].row=feilds2[j].row;
@@ -81,14 +89,7 @@ int addMatrix(term feilds1[],term feilds2[],term feild3[])
                c3++; 
                j++;
             }
-            if (feilds1[i].row < feilds2[j].row || (feilds1[i].row == feilds2[j].row && feilds1[i].col < feilds2[j].col))
-            {
-               feild3[c3].row=feilds1[i].row;
-                feild3[c3].col=feilds1[i].col;
-                feild3[c3].value=feilds1[i].value;
-                c3++;
-                i++;
-            }
+            
     }
         while(i<=feilds1[0].value)
         {
