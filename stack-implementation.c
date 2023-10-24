@@ -2,7 +2,7 @@
 #define maxsize 3
 int push(int arr[],int top)
 {
-    if(top<maxsize-1)//Array Indexing: The push function is supposed to add an element to the array, but it has a problem. In C, array indices start from 0, not 1. When you do arr[top+1]=ele;, you're attempting to access an element outside the array's bounds.
+    if(top<maxsize-1)//Array Indexing: The push function is supposed to add an element to the array, but it has a problem. In C, array indices start from 0, not 1. When you do arr[top+1]=ele;, you're attempting to access an element outside the array's bounds.arr[top+1] means top+1 should be less than maxsize
     {
         int ele;
         printf("Enter element to be pushed\n");
@@ -27,6 +27,7 @@ int pop(int arr[],int top)
     {
         printf("Empty\n");
     }
+    return top;
 }
 void peek(int arr[],int top)
 {
@@ -75,6 +76,6 @@ void main()
             printf("Invalid choice\n");
         }
         printf("Do you wish to continue enter y to continue n to stop\n");
-        scanf(" %c",&ch);
+        scanf(" %c",&ch);//here before %c there must be space
     }
 }
