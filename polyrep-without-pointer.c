@@ -9,7 +9,7 @@ typedef struct
 poly terms[max];//ee array le oro term um poly type anu
 int avail = 0;
 int starta, startb, finisha, finishb, startd, finishd;
-void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *finishd);
+int polyadd(int starta, int startb, int finisha, int finishb, int startd, int finishd);
 void attach(float coeff, int exp, int index);
 int main()
 {
@@ -65,7 +65,7 @@ int main()
     startd = avail;//resultant start cheyunna index anu ethu
     finishd = avail - 1;//resultant il first element varumboze finishd aa index lottu varu finishd eppozum eethu index il ano last ayitu elemnt enter aye athilekku arikum point cheyunne
     //startb = finisha + 1;
-    polyadd(starta, startb, finisha, finishb, startd, &finishd);//polyadd void function anu appa evide nee finsihd anu pass cheyanengil aa function il athu swantayi oru finishd ondakki athilarikum changes varuthunne athu but nammaku ee finshd lu reflect akilla aathu reflect akan vendiyanu nammal pointer use cheyunne
+    finishd=polyadd(starta, startb, finisha, finishb, startd, finishd);//polyadd void function anu appa evide nee finsihd anu pass cheyanengil aa function il athu swantayi oru finishd ondakki athilarikum changes varuthunne athu but nammaku ee finshd lu reflect akilla aathu reflect akan vendiyanu nammal pointer use cheyunne
     printf("The resultant expression is: %.2fx^%d", terms[startd].coeff, terms[startd].exp);
     for (i = startd + 1; i <= finishd; i++)
     {
@@ -74,7 +74,7 @@ int main()
     printf("\n");
     return 0;
 }
-void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *finishd)
+int polyadd(int starta, int startb, int finisha, int finishb, int startd, int finishd)
 {
     while (starta <= finisha && startb <= finishb)
     {
@@ -87,9 +87,9 @@ void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *
                 starta++;
                 startb++;
                 startd++;
-                printf("*finishd before=%d",*finishd);
-                *finishd = *finishd + 1;
-                printf("*finishd after=%d",*finishd);
+                printf("finishd before=%d",finishd);
+                finishd = finishd + 1;
+                printf("finishd after=%d",finishd);
             }
         }
         else if (terms[starta].exp > terms[startb].exp)
@@ -97,18 +97,18 @@ void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *
             attach(terms[starta].coeff, terms[starta].exp, startd);
             starta++;
             startd++;
-            printf("*finishd before=%d",*finishd);
-            *finishd = *finishd + 1;
-            printf("*finishd after=%d",*finishd);
+            printf("finishd before=%d",finishd);
+            finishd = finishd + 1;
+            printf("finishd after=%d",finishd);
         }
         else if (terms[starta].exp < terms[startb].exp)
         {
             attach(terms[startb].coeff, terms[startb].exp, startd);
             startb++;
             startd++;
-            printf("*finishd before=%d",*finishd);
-            *finishd = *finishd + 1;
-            printf("*finishd after=%d",*finishd);
+            printf("finishd before=%d",finishd);
+            finishd = finishd + 1;
+            printf("finishd after=%d",finishd);
         }
     }
     while (starta <= finisha)
@@ -116,19 +116,20 @@ void polyadd(int starta, int startb, int finisha, int finishb, int startd, int *
         attach(terms[starta].coeff, terms[starta].exp, startd);
         starta++;
         startd++;
-        printf("*finishd before=%d",*finishd);
-        *finishd = *finishd + 1;
-        printf("*finishd after=%d",*finishd);
+        printf("finishd before=%d",finishd);
+        finishd = finishd + 1;
+        printf("finishd after=%d",finishd);
     }
     while (startb <= finishb)
     {
         attach(terms[startb].coeff, terms[startb].exp, startd);
         startb++;
         startd++;
-        printf("*finishd before=%d",*finishd);
-        *finishd = *finishd + 1;
-        printf("*finishd after=%d",*finishd);
+        printf("finishd before=%d",finishd);
+        finishd = finishd + 1;
+        printf("finishd after=%d",finishd);
     }
+    return finishd;
 }
 
 void attach(float coeff, int exp, int index)
