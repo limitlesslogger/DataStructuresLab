@@ -47,7 +47,7 @@ void evaluatePostfix()
         }
         else//pushing operand to stack by converting it to int 
         {
-            stack[++top]=(int)postfix[i]-48;
+            stack[++top]=(int)postfix[i]-48;// gives ASCII equivalent of character
         }
     }
     printf("Result= %d",result);

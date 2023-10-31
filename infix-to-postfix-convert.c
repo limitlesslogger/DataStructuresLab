@@ -47,17 +47,29 @@ void toPostfix()
                 {
                     postfix[j++] = stack[top--];
                     stack[++top] = infix[i];
+                }//if stack has more than one operator
+                if (top > 0)//consider if - is coming stack has top-1 as + as top as * so * will be poped then since - and + have same priority but + came in first so it must move out first so for that this is done eg try out a+b*c-d
+                {
+                    if (precedence(stack[top]) == precedence(stack[top - 1]))
+                    {
+                        temp = stack[top];
+                        stack[top] = stack[top - 1];
+                        stack[top - 1] = temp;
+                        postfix[j++] = stack[top--];
+                    }
                 }
-                // if (top > 0)
-                // {
-                //     if (precedence(stack[top]) == precedence(stack[top - 1]))
-                //     {
-                //         temp = stack[top];
-                //         stack[top] = stack[top - 1];
-                //         stack[top - 1] = temp;
-                //         postfix[j++] = stack[top--];
-                //     }
-                // }
+                //you can substitute above else and if with below code
+                /*
+                else
+                {
+                    postfix[j++] = stack[top--];
+                    if (precedence(infix[i]) == precedence(stack[top]))
+                    {
+                        postfix[j++] = stack[top--];
+                    }
+                    stack[++top] = infix[i];
+                }
+                */
             }
         }
         else if (infix[i] == '(')
