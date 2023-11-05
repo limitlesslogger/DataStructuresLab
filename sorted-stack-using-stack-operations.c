@@ -67,7 +67,7 @@ void main()
     int ch;
     while(choice=='y')
     {
-        printf("Enter\n 1 to push \n2to pop\n3 to display\n");
+        printf("Enter\n1 to push \n2to pop\n3 to display\n");
         scanf(" %d",&ch);
         switch(ch)
         {

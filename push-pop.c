@@ -83,3 +83,86 @@ void main()
         scanf(" %c",&ch);
     }
 }
+/*
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+1
+Enter element to be inserted
+1
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+1
+Enter element to be inserted
+2
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+1
+Enter element to be inserted
+4
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+1
+Enter element to be inserted
+6
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+4
+6<---top
+4
+2
+1
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+2
+Poped element is 6
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+4
+4<---top
+2
+1
+To continue neter y else enter n
+y
+Enter
+1to push
+2to pop
+3 to peek
+4to display
+3
+Top element is 4
+To continue neter y else enter n
+n
+*/
