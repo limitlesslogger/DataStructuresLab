@@ -86,7 +86,7 @@ int polyadd(int starta, int startb, int finisha, int finishb, int startd, int fi
                 attach(coefficient, terms[startb].exp, startd);
                 starta++;
                 startb++;
-                startd++;
+                startd++;//ethinte use is to place element of result in correct index
                 printf("finishd before=%d",finishd);
                 finishd = finishd + 1;
                 printf("finishd after=%d",finishd);
