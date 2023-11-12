@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-int key;
-int flag=0;
+int position=0;
+int flag=0,cnt=1;
 int ele = 0;//to determine whether it is the first node
 
 typedef struct node {
@@ -40,7 +40,40 @@ nd* allocate_new_node(nd* prev_node) //prev_node is for linking prvious node to 
         return new_node;//it will be assigned to prev_node in main 
     }
 }
-
+void Delete_pos()
+{
+    if(head==NULL)
+    {
+        printf("Empty List\n");
+    }
+    else
+    {
+        if(position==1)
+        {
+            nd* ptr=head;
+            head=head->next;
+            free(ptr);
+            return;
+        }
+        else
+        {
+            nd* temp=head;
+            while(temp->next!=NULL)//there exists a next element
+            {
+                cnt++;
+                if(position==cnt)
+                {
+                    nd* ptr = temp->next;
+                    temp->next = temp->next->next;
+                    free(ptr);
+                    return;
+                }
+                temp=temp->next;
+            }
+            printf("Position not found in the list\n");
+        }
+    }
+}
 void display(nd* head) {
     nd* temp = head;
     if(head==NULL)
@@ -57,39 +90,7 @@ void display(nd* head) {
         printf("\n");
     }
 }
-void Delete_key() {
-    nd* temp = head;
 
-    if (head == NULL) 
-    {
-        printf("No elements in the list\n");
-        flag = 1;
-    } 
-    else //there are elements in list
-    {
-        // Check if the key is in the first node
-        if (head->data == key) {
-            nd* ptr = head;
-            head = head->next;//current head is deleted so next adjacent member must be made head
-            free(ptr);
-            return;
-        }
-
-        // Check for the key in the rest of the list
-        while (temp->next != NULL) //while there exists an element adjacent to current element 
-        {
-            if (temp->next->data == key) {
-                nd* ptr = temp->next;//ptr points to next element which is to be freed
-                temp->next = temp->next->next;//current elements next is being assigned a pointer to the node (which was initially pointed by the deleted node)
-                free(ptr);
-                return;
-            }
-            temp = temp->next;//while loop updation
-        }
-
-        printf("Key not found in the list\n");//if it was found control would have returned
-    }
-}
 
 int main() {
     nd* prev_node = NULL;
@@ -101,9 +102,9 @@ int main() {
     }
     printf("The elements are\n");
     display(head);
-    printf("Enter the key to be deleted\n");
-    scanf("%d",&key);
-    Delete_key();
+    printf("Enter the position to be deleted\n");
+    scanf("%d",&position);
+    Delete_pos();
     printf("After deletion\n");
     display(head);
     // Free the allocated memory for each node
