@@ -48,7 +48,24 @@ void display(nd* head) {
     }
     printf("\n");
 }
-
+void SearchElement()
+{
+    int pos=0;
+    nd* temp=head;
+    int item;
+    printf("Enter element to be searched\n");
+    scanf("%d",&item);
+    while(temp!=NULL)
+    {
+        if(temp->data==item)
+        {
+            pos++;
+            printf("Element found at position %d\n",pos);
+        }
+        pos++;
+        temp=temp->next;
+    }
+}
 int main() {
     nd* prev_node = NULL;
     char ch = 'y';
@@ -59,7 +76,7 @@ int main() {
     }
     printf("The elements are\n");
     display(head);
-
+    SearchElement();
     // Free the allocated memory for each node
     nd* current = head;
     while (current != NULL) {
