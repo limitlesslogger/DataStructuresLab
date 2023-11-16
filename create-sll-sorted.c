@@ -1,73 +1,70 @@
-//insertion sort
 #include <stdio.h>
 #include <stdlib.h>
-
-int ele = 0;//to determine whether it is the first node
-
-typedef struct node {
+typedef struct node
+{
     struct node* next;
     int data;
-} nd;
-
-nd* head;
-//pointer to first node
-nd* allocate_new_node(nd* prev_node) //prev_node is for linking prvious node to next node 
+}nd;
+nd* head=NULL;
+char ch='y';
+int node_data;
+void create_new_node()
 {
+    nd* new_node = (nd*)malloc(sizeof(nd));
     printf("Enter node data\n");
-    int n;
-    scanf("%d", &n);
-
-    nd* new_node = (nd*)malloc(sizeof(nd));//allocating memory for new_node
-    if (new_node == NULL) {
-        printf("Memory allocation failed\n");
-        exit(1);
-    }
-
-    if (ele == 0) //first element
+    scanf("%d",&node_data);
+    if (head == NULL || node_data <= head->data)
     {
-        new_node->data = n;
-        new_node->next = NULL;
-        ele++;
-        head = new_node;//only assignment to head 
-        return new_node;//it will be assigned to prev_node in main 
-    } 
-    else 
+        new_node->data=node_data;
+        new_node->next = head;
+        head = new_node;
+    }
+    else
     {
-        new_node->data = n;
-        new_node->next = NULL;
-        ele++;
-        prev_node->next = new_node;//link
-        return new_node;//it will be assigned to prev_node in main 
+        nd* temp=head;
+        nd* prev=NULL;
+        while(temp!=NULL&&((temp->data)<node_data))//next element exist then only we can update 
+        {
+            prev=temp;
+            temp=temp->next;
+        }  
+        new_node->data = node_data;
+        new_node->next = temp;
+        prev->next = new_node;
     }
 }
-
-void display(nd* head) {
-    nd* temp = head;
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
+void display()
+{
+    nd* temp=head;
+    if(head==NULL)
+    {
+        printf("No element to display\n");
     }
-    printf("\n");
+    else
+    {
+        while(temp!=NULL)
+        {
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+        printf("\n");
+    }
+}
+void main()
+{
+    printf("Do you wish to insert elements to list y or n\n");
+    scanf(" %c",&ch);
+    while(ch=='y')
+    {
+        create_new_node();
+        printf("Do you wish to insert elements to list y or n\n");
+        scanf(" %c",&ch);
+    }
+    display();
 }
 
-int main() {
-    nd* prev_node = NULL;
-    char ch = 'y';
-    while (ch == 'y') {
-        prev_node = allocate_new_node(prev_node);
-        printf("Do you wish to continue? Enter y or n\n");
-        scanf(" %c", &ch);
-    }
-    printf("The elements are\n");
-    display(head);
 
-    // Free the allocated memory for each node
-    nd* current = head;
-    while (current != NULL) {
-        nd* next = current->next;
-        free(current);
-        current = next;
-    }
 
-    return 0;
-}
+
+
+
