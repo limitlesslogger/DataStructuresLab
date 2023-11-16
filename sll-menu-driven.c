@@ -263,6 +263,7 @@ void insertPosition() {
     if (head == NULL || pos == 1) {
         new_node->next = head;
         head = new_node;
+        flag=1;
         return;
     } 
     else 
@@ -279,7 +280,7 @@ void insertPosition() {
             {
                 new_node->next = temp;
                 prev->next = new_node;
-                // flag = 1;
+                flag = 1;
                 // break;
                 return;
             }
@@ -288,13 +289,14 @@ void insertPosition() {
         if (flag != 1 && prev != NULL && temp == NULL) {
             new_node->next = NULL;
             prev->next = new_node;
-            // flag = 1;
+            flag = 1;
             return;
         }
 }
-    // if (flag == 0) {
-    //     printf("Invalid position. Position exceeds the size of the list.\n");
-    // }
+    if (flag == 0) 
+    {
+        printf("Invalid position. Position exceeds the size of the list.\n");
+    }
 }
 
 // ... (rest of the code)
@@ -330,7 +332,7 @@ void main()
             case 3:
             insertPosition();
             display();
-            // break;
+            break;
             // case 4:
             // deleteWithKey();
             // display();
