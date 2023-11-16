@@ -149,7 +149,7 @@ void insertPosition()
             {
                 printf("Enter new node data\n");
                 scanf("%d",&new_node->data);
-                new_node->next=temp->next;
+                new_node->next=temp;
                 prev_node->next=new_node;
                 prev_node=temp;
                 temp=temp->next;
@@ -293,3 +293,84 @@ void main()
         scanf(" %c",&decision);
     }
 }
+/*
+Do you wish to insert elements y or n
+y
+Enter node data
+1
+Do you wish to insert elements y or n
+y
+Enter node data
+2
+Do you wish to insert elements y or n
+n
+The list is
+1 2 
+Enter
+1 Given node data insert a new node after it
+2 Given node data insert a new node before it
+3 Insert new node at given position
+4 Delete a node given key
+5 Delete a node given the position
+1
+Enter needed node data
+2
+Enter new node data
+3
+1 2 3 
+Do you wish to perform other operations y or n
+y
+Enter
+1 Given node data insert a new node after it
+2 Given node data insert a new node before it
+3 Insert new node at given position
+4 Delete a node given key
+5 Delete a node given the position
+2
+Enter the node before which you have to enter new node
+3
+Enter new node data
+22
+1 2 22 3 
+Do you wish to perform other operations y or n
+y
+Enter
+1 Given node data insert a new node after it
+2 Given node data insert a new node before it
+3 Insert new node at given position
+4 Delete a node given key
+5 Delete a node given the position
+3
+Enter the position at which to insert
+2
+Enter new node data
+34
+Invalid position
+1 34 2 22 3 
+Do you wish to perform other operations y or n
+y
+Enter
+1 Given node data insert a new node after it
+2 Given node data insert a new node before it
+3 Insert new node at given position
+4 Delete a node given key
+5 Delete a node given the position
+4
+Enter the key to be deleted
+34
+1 2 22 3 
+Do you wish to perform other operations y or n
+y
+Enter
+1 Given node data insert a new node after it
+2 Given node data insert a new node before it
+3 Insert new node at given position
+4 Delete a node given key
+5 Delete a node given the position
+5
+Enter the position at which to delete
+3
+1 2 3 
+Do you wish to perform other operations y or n
+n
+*/

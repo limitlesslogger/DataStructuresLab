@@ -170,5 +170,23 @@ Now, if you call `display` after calling `Reverse`, you should see the reversed 
 */
 
 
-
+/*
+Do you wish to insert elements to list y or n
+y
+Enter node data
+23
+Do you wish to insert elements to list y or n
+y
+Enter node data
+33
+Do you wish to insert elements to list y or n
+y
+Enter node data
+44
+Do you wish to insert elements to list y or n
+n
+23 33 44 
+After reversing
+44 33 23 
+*/
 

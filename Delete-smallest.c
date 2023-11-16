@@ -133,4 +133,26 @@ int main() {
 
     return 0;
 }
-
+/*
+Enter node data
+3
+Do you wish to continue? Enter y or n
+y
+Enter node data
+6
+Do you wish to continue? Enter y or n
+y
+Enter node data
+8
+Do you wish to continue? Enter y or n
+y
+Enter node data
+0
+Do you wish to continue? Enter y or n
+n
+The elements are
+3 6 8 0 
+Smallest in list is the value 0
+After deletion
+3 6 8 
+*/

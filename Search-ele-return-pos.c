@@ -38,6 +38,7 @@ nd* allocate_new_node(nd* prev_node) //prev_node is for linking prvious node to 
         prev_node->next = new_node;//link
         return new_node;//it will be assigned to prev_node in main 
     }
+    
 }
 
 void display(nd* head) {
@@ -61,14 +62,18 @@ void SearchElement()
         {
             pos++;
             printf("Element found at position %d\n",pos);
+            return;
         }
         pos++;
         temp=temp->next;
     }
+    printf("Element not found\n");
 }
 int main() {
     nd* prev_node = NULL;
-    char ch = 'y';
+    char ch ;
+    printf("Do you wish to insert elements y or n\n");
+    scanf(" %c",&ch);
     while (ch == 'y') {
         prev_node = allocate_new_node(prev_node);
         printf("Do you wish to continue? Enter y or n\n");
@@ -87,3 +92,20 @@ int main() {
 
     return 0;
 }
+/*
+Do you wish to insert elements y or n
+y
+Enter node data
+1
+Do you wish to continue? Enter y or n
+y
+Enter node data
+88
+Do you wish to continue? Enter y or n
+n
+The elements are
+1 88 
+Enter element to be searched
+88
+Element found at position 2
+*/
