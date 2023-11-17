@@ -127,7 +127,7 @@ void insertBefore()
 
 void insertPosition()
 {
-    int pos,cnt=0;
+    int pos,cnt=1;
     printf("Enter the position at which to insert\n");
     scanf("%d",&pos);
     nd* new_node=(nd*)malloc(sizeof(nd));
@@ -142,15 +142,19 @@ void insertPosition()
     {
         nd* temp=head;
         nd* prev_node=NULL;
-        while(temp!=NULL)
+        while(temp->next!=NULL)
         {
             cnt++;
             if(cnt==pos)
             {
                 printf("Enter new node data\n");
                 scanf("%d",&new_node->data);
-                new_node->next=temp;
-                prev_node->next=new_node;
+                // new_node->next=temp;
+                // prev_node->next=new_node;
+                // prev_node=temp;
+                // temp=temp->next;
+                new_node->next=temp->next;
+                temp->next=new_node;
                 prev_node=temp;
                 temp=temp->next;
                 break;
@@ -158,13 +162,13 @@ void insertPosition()
             prev_node=temp;
             temp=temp->next;
         }
-        if(prev_node!=NULL&&temp==NULL&&pos==(cnt+1))
+        if(prev_node!=NULL&&temp!=NULL&&pos==(cnt+1))
         {
             printf("Enter new node data\n");
             scanf("%d",&new_node->data);
             new_node->next=NULL;
-            prev_node->next=new_node;
-            prev_node=NULL;
+            temp->next=new_node;
+            temp=NULL;
         }
         else
         {
