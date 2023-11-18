@@ -170,3 +170,106 @@ void insertPosition() {
         printf("Invalid position. Position exceeds the size of the list.\n");
     }
 }
+
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct node
+// {
+//     int data;
+//     struct node* next;
+//     struct node* prev;
+// }nd;
+// nd* head;
+// //new inserted elements next points to head
+// void insert_cll()
+// {
+//     nd* new_node=(nd*)malloc(sizeof(nd));
+//     printf("Enter node data\n");
+//     scanf("%d",&new_node->data);
+//     if(head==NULL)
+//     {
+//         head=new_node;
+//         new_node->prev=NULL;
+//         new_node->next=head;
+//     }
+//     else
+//     {
+//         nd* temp=head;
+//         while(temp->next!=head)
+//         {
+//             temp=temp->next;
+//         }
+//         if(temp->next==head)
+//         {
+//             temp->next=new_node;
+//             new_node->next=head;
+//             head->prev=new_node;
+//             new_node->prev=temp;
+//         }
+//     }
+// }
+// void delete_front()
+// {
+//     if(head==NULL)
+//     {
+//         printf("No element\n");
+//     }
+//     else if(head->next!=NULL)
+//     {
+//         nd* ptr=head;
+//         head=ptr->next;
+//         ptr->next->prev=NULL;
+//         ptr->next=NULL;
+//         free(ptr);
+//     }
+//     else
+//     {
+//         nd* ptr=head;
+//         head=NULL;
+//         free(ptr);
+//     }
+// }
+// void display_cll()
+// {
+//     if(head==NULL)
+//     {
+//         printf("Empty\n");
+//     }
+//     else
+//     {
+//         nd* temp=head->next;
+//         printf("%d ",head->data);
+//         while(temp!=head)
+//         {
+//             printf("%d ",temp->data);
+//             temp=temp->next;
+//         }
+//         printf("\n");
+//     }
+// }
+// void main()
+// {
+//     char ch;
+//     printf("Do you wish to insert elements into list\n");
+//     scanf("%c",&ch);
+//     while(ch=='y')
+//     {
+//         insert_cll();//insertion at end
+//         printf("Do you wish to insert elements into list\n");
+//         scanf(" %c",&ch);
+//     }
+//     display_cll();
+//     ch='n';
+//     printf("Do you wish to perform deletion\n");
+//     scanf(" %c",&ch);
+//     while(ch=='y')
+//     {
+//         delete_front();
+//         display_cll();
+//         printf("Do you wish to perform deletion\n");
+//         scanf(" %c",&ch);
+//     }
+//     // display_cll();
+// }
