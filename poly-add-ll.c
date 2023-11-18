@@ -30,17 +30,20 @@ main()
 }
 struct node *enter(struct node *start)
 {
-    int i, n, ex;
+    int i, ex;
     int co;
-    printf("How many terms you want: ");
-    scanf("%d", &n);
-    for (i = 1; i <= n; i++)
+    char ch='y';
+    printf("Enter terms y or n: ");
+    scanf(" %c", &ch);
+    while(ch=='y')
     {
-        printf("Enter coefficient for term %d : ", i);
+        printf("Enter coefficient\n");
         scanf("%d", &co);
-        printf("Enter pownent for term %d : ", i);
+        printf("Enter exponent \n");
         scanf("%d", &ex);
         start = insert(start, co, ex);
+        printf("Enter terms y or n: ");
+        scanf(" %c", &ch);
     }
     return start;
 }
@@ -49,7 +52,7 @@ struct node *insert(struct node *start, int co, int ex)
     struct node *ptr, *tmp;
     tmp = (struct node *)malloc(sizeof(struct node));
     tmp->coeff = co;
-    tmp->pow = ex;
+    tmp->pow = ex;//temp is new_node
     if (start == NULL || ex > start->pow)
     {
         tmp->next = start;
