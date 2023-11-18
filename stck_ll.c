@@ -100,6 +100,8 @@ void main()
             case 3:
             peek();
             break;
+            default:
+            printf("Invalid choice\n");
         }
         printf("Do you wish to perform more operations\n");
         scanf(" %c",&ch);
