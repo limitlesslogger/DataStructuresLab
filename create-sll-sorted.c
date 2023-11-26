@@ -62,7 +62,23 @@ void main()
     }
     display();
 }
-
+/*
+Do you wish to insert elements to list y or n
+y
+Enter node data
+2
+Do you wish to insert elements to list y or n
+y
+Enter node data
+0
+Do you wish to insert elements to list y or n
+y
+Enter node data
+22
+Do you wish to insert elements to list y or n
+n
+0 2 22 
+*/
 
 
 
