@@ -156,3 +156,162 @@ int main()
 
     return 0;
 }
+
+
+// //Reverse the content of a queue using stack –Implement using SLL
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct node
+// {
+//     int data;
+//     struct node* next;
+// }nd;
+// nd* front;
+// nd* end;
+// nd* head;
+// nd* create_node()
+// {
+//     nd* new_node=(nd*)malloc(sizeof(nd));
+//     new_node->next=NULL;
+//     printf("Enter node data\n");
+//     scanf("%d",&new_node->data);
+//     return new_node;
+// }
+// void enqueue()
+// {
+//     nd* new_node=create_node();
+//     if(front==NULL)
+//     {
+//         front=new_node;
+//         end=new_node;
+//     }
+//     else
+//     {
+//         end->next=new_node;
+//         end=new_node;
+//     }
+// }
+// void display()
+// {
+//     if(front==NULL)
+//     {
+//         printf("Oops Empty\n");
+//     }
+//     else
+//     {
+//         nd* temp=front;
+//         while(temp!=NULL)
+//         {
+//             printf("%d ",temp->data);
+//             temp=temp->next;
+//         }
+//         printf("\n");
+//     }
+// }
+// // void push(nd* nod)
+// // {
+// //     if(head==NULL)
+// //     {
+// //         head=nod;
+// //     }
+// //     else
+// //     {
+// //         nd* temp=head;
+// //         while(temp->next!=NULL)
+// //         {
+// //             temp=temp->next;
+// //         }
+// //         if(temp->next==NULL)
+// //         {
+// //             temp->next=nod;
+// //         }
+// //     }
+// // }
+// nd* push(nd *nod)
+// {
+//     if(head==NULL)
+//     {
+//         head=nod;
+//     }
+//     else
+//     {
+//         nod->next=head;
+//         head=nod;
+//     }
+//     return head;
+// }
+// void to_stack()
+// {
+//     if(front==NULL)
+//     {
+//         printf("No elements in queue to perform reversing on\n");
+//     }
+//     else
+//     {
+//         nd* temp=front;
+//         while(temp!=NULL)
+//         {
+//             head=push(temp);
+//             temp=temp->next;
+//         }
+//     }
+// }
+// // void display_stack()
+// // {
+// //     if(head==NULL)
+// //     {
+// //         printf("Empty\n");
+// //     }
+// //     else
+// //     {
+// //         nd* temp=head;
+// //         while(temp!=NULL)
+// //         {
+// //             printf("%d ",temp->data);
+// //         }
+// //         printf("\n");
+// //     }
+// // }
+// void stack_pop()
+// {
+//     if(head==NULL)
+//     {
+//         printf("There were no elements to reverse\n");
+//     }
+//     else
+//     {
+//         nd* temp=head;
+//         while(temp!=NULL)
+//         {
+//             printf("%d ",temp->data);
+//             temp=temp->next;
+//         }
+//         printf("\n");
+//     }
+// }
+// void main()
+// {
+//     int op;
+//     printf("Enter \n1 to enter queue to be reversed\n2 to display queue\n");
+//     char ch='y';
+//     while(ch=='y')
+//     {
+//         printf("Enter choice 1 or 2\n");
+//         scanf("%d",&op);
+//         switch(op)
+//         {
+//             case 1:
+//             enqueue();
+//             break;
+//             case 2:
+//             display();
+//             break;
+//         }
+//         printf("Continue y or n\n");
+//         scanf(" %c",&ch);
+//     }
+//     to_stack();
+//     //display_stack();
+//     stack_pop();
+// }
+
